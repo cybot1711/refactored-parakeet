@@ -1,10 +1,14 @@
 import { axiosInstance } from '../axiosInstance'
+import { RepoType } from '../repo'
 
 export const getRepos = async ({ pageParam = 1, filter = '' }) => {
   try {
-    const result = await axiosInstance.get<unknown>('https://api.github.com/orgs/godaddy/repos', {
-      params: { page: pageParam, phrase: filter },
-    })
+    const result = await axiosInstance.get<RepoType[]>(
+      'https://api.github.com/orgs/godaddy/repos',
+      {
+        params: { page: pageParam, phrase: filter },
+      },
+    )
 
     return {
       repos: result.data,

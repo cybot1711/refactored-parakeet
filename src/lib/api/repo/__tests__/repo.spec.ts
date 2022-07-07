@@ -1,5 +1,5 @@
 import { axiosInstance } from '../../axiosInstance'
-import { getRepos } from '../repos.service'
+import { getRepo } from '../repo.service'
 
 jest.mock('axios', () => ({
   create: () => ({
@@ -7,28 +7,26 @@ jest.mock('axios', () => ({
   }),
 }))
 
-describe('lib:api:repos', () => {
+describe('lib:api:repo', () => {
   afterEach(jest.resetAllMocks)
 
   it('should be called with the correct url', async () => {
     ;(axiosInstance.get as jest.Mock).mockReturnValue(Promise.resolve({ data: {} }))
-    const result = await getRepos({ pageParam: 1 })
+    const result = await getRepo('mock-url')
 
-    expect(axiosInstance.get).toBeCalledWith('https://api.github.com/orgs/godaddy/repos', {
-      params: { page: 1, phrase: '' },
-    })
-    expect(result).toEqual({ pageParam: 1, repos: {} })
+    expect(axiosInstance.get).toBeCalledWith('mock-url')
+    expect(result).toEqual({})
   })
 
   it('should throw', async () => {
     ;(axiosInstance.get as jest.Mock).mockReturnValue(Promise.reject(new Error('Error')))
 
-    await expect(getRepos({})).rejects.toThrow('Error')
+    await expect(getRepo('mock-url')).rejects.toThrow('Error')
   })
 
   it('should only check error instances for this application', async () => {
     ;(axiosInstance.get as jest.Mock).mockReturnValue(Promise.reject(new Array('Error')))
 
-    await expect(getRepos({})).resolves.toEqual(undefined)
+    await expect(getRepo('mock-url')).resolves.toEqual(undefined)
   })
 })
