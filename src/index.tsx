@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserTracing } from '@sentry/tracing'
 import * as Sentry from '@sentry/react'
+import { CssBaseline } from '@mui/material'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 Sentry.init({
   dsn: process.env.SENTRY,
@@ -19,7 +21,10 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <CssBaseline />
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
       {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
     </QueryClientProvider>
   </React.StrictMode>,
