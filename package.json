@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@jahilkhalfe/kleen-ui": "^0.1.20",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "@sentry/react": "^7.5.0",
     "@sentry/tracing": "^7.5.0",

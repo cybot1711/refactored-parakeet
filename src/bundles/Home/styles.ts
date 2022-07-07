@@ -1,4 +1,4 @@
-import { Container, Skeleton, styled } from '@mui/material'
+import { Container, List, ListItem, Skeleton, styled, ListItemText } from '@mui/material'
 
 export const StyledContainer = styled(Container)({
   height: '100vh',
@@ -26,12 +26,11 @@ export const Box = styled('div')({
   overflow: 'hidden',
 })
 
-export const Item = styled('div')({
+export const Item = styled(ListItem)({
   backdropFilter: 'blur(8px)',
   boxShadow: '0 10px 15px 10px rgb(0 0 0 / 15%)',
   color: 'white',
   width: '100%',
-  padding: 21,
   borderRadius: 8,
   marginBottom: 10,
 })
@@ -65,7 +64,7 @@ export const ScrollContainer = styled('div')({
   margin: 0,
 })
 
-export const ScrollBox = styled('div')({
+export const ScrollBox = styled(List)({
   height: '90%',
   overflowX: 'hidden',
   overflowY: 'auto',
