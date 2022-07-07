@@ -52,14 +52,12 @@ export const StyledDescription = styled('p')({
   color: '#FFB4A3',
   letterSpacing: '-0.025rem',
   width: '100%',
-  fontSize: '1em',
-  lineHeight: 1.75,
   fontWeight: 400,
 })
 
 export const StyledDivider = styled('hr')({
   color: '#FFB4A3',
-  marginBottom: '3rem',
+  marginBottom: '2rem',
 })
 
 export const StyledTitle = styled('h1')({
@@ -74,4 +72,9 @@ export const StyledTitle = styled('h1')({
 export const StyledButtonLink = styled(Button)({
   color: 'white',
   marginBottom: '1rem',
+}) as typeof Button
+
+export const StyledSpan = styled('span')({
+  color: 'white',
+  fontWeight: 'bold',
 }) as typeof Button

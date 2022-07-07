@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom'
 import React from 'react'
 import {
   StyledButtonLink,
@@ -9,41 +8,53 @@ import {
   StyledImage,
   StyledImageContainer,
   StyledImageFrame,
+  StyledSpan,
   StyledTitle,
 } from './styles'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { Button } from '@mui/material'
+import { Skeleton } from '@mui/material'
+import { useGetRepo } from '../../hooks'
 
 export const Repo = () => {
-  const params = useParams()
+  const { data, isLoading } = useGetRepo()
+
   return (
     <StyledContainer>
       <StyledContent>
         <StyledImageContainer>
           <StyledImageFrame>
-            <StyledImage src='https://place-hold.it/166x166' />
+            {isLoading ? (
+              <Skeleton variant='circular' width={142} height={142} />
+            ) : (
+              <StyledImage src={data?.repo?.organization?.avatar_url ?? ''} />
+            )}
           </StyledImageFrame>
         </StyledImageContainer>
-
-        <StyledTitle>Repository information</StyledTitle>
-
-        <StyledDescription>Description goes here</StyledDescription>
+        <StyledTitle>{data?.repo?.name ?? ''}</StyledTitle>
+        <StyledDescription>{data?.repo?.description ?? ''}</StyledDescription>
 
         <StyledButtonLink
-          href='https://github.com/'
+          href={data?.repo?.html_url ?? ''}
           target='_blank'
           startIcon={<GitHubIcon />}
-          sx={{ color: 'white' }}
         >
           Github
         </StyledButtonLink>
 
         <StyledDivider />
 
-        <StyledDescription>Languages: C C++ C#</StyledDescription>
-        <StyledDescription>Forks: C C++ C#</StyledDescription>
-        <StyledDescription>Open issues: C C++ C#</StyledDescription>
-        <StyledDescription>Watchers: C C++ C#</StyledDescription>
+        <StyledDescription>
+          Languages: <StyledSpan>{Object.keys(data?.languages ?? {}).join(' ')}</StyledSpan>
+        </StyledDescription>
+        <StyledDescription>
+          Forks: <StyledSpan>{data?.repo?.forks_count}</StyledSpan>
+        </StyledDescription>
+        <StyledDescription>
+          Open issues: <StyledSpan>{data?.repo?.open_issues_count}</StyledSpan>
+        </StyledDescription>
+        <StyledDescription>
+          Watchers: <StyledSpan>{data?.repo?.watchers_count}</StyledSpan>
+        </StyledDescription>
       </StyledContent>
     </StyledContainer>
   )
