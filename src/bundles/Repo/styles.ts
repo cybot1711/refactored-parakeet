@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles'
-import { Container } from '@mui/material'
+import { Button, Container } from '@mui/material'
 
 export const StyledContainer = styled(Container)(({ theme }) => ({
   marginLeft: 'unset',
@@ -16,7 +16,7 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
 }))
 
 export const StyledContent = styled('div')(({ theme }) => ({
-  padding: theme.spacing(7),
+  padding: theme.spacing(3),
 }))
 
 export const StyledImageContainer = styled('div')({
@@ -61,3 +61,17 @@ export const StyledDivider = styled('hr')({
   color: '#FFB4A3',
   marginBottom: '3rem',
 })
+
+export const StyledTitle = styled('h1')({
+  color: 'white',
+  letterSpacing: '-0.1rem',
+  width: '100%',
+  fontSize: '2.5rem',
+  lineHeight: '1.125',
+  fontWeight: 'bold',
+})
+
+export const StyledButtonLink = styled(Button)({
+  color: 'white',
+  marginBottom: '1rem',
+}) as typeof Button
