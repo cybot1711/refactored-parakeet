@@ -71,6 +71,7 @@ const ScrollContainer = styled('div')({
 
 const ScrollBox = styled('div')({
   height: '90%',
+  overflowX: 'hidden',
   overflowY: 'auto',
   padding: 10,
 })
