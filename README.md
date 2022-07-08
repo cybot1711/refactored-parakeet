@@ -100,6 +100,7 @@ Given more time I would Implement the following.
 * If there should be more routes, we can lazy load them.
 * Add global notification's system for toasts warnings etc.
 * Make use of Materia UI theme spacing in more places for standard spacing everywhere and or have ui-kit.
+* Any other unclear decisions can be discussed in a follow-up.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
