@@ -64,6 +64,10 @@ Here will follow steps to run the project.
     ```shell
     yarn lint
     ```
+* To run tests
+    ```shell
+    yarn test
+    ```
 * To fix linting and formatting
     ```shell
     yarn lint:fix
