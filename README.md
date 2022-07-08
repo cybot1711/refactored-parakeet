@@ -2,14 +2,19 @@
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<img src="image-goes-here">
+<img src="screen.png">
 
 ## About the project
 
-Frontend template app.
+Frontend App.
 
 The core focus of this part of the solution:
-- Whatever you want to do here
+- A Speedy implementation of the requirements.
+- Get the repo list.
+- Display the list of repos in an infinite scroll ( Loads more when scrolling until there is no more data ).
+- Add a Single repo page.
+- Fetch single repo data to preserve on reload and get the slug from url params.
+- There is a search  which does dummy search. The orgs endpoint does not support searching through repos for an org.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -63,18 +68,8 @@ Here will follow steps to run the project.
     ```shell
     yarn lint:fix
     ```
-* Runs storybook
-    ```shell
-    yarn storybook
-    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-## Roadmap
-
-
-## Follow up
-
 
 ### Implementation
 
@@ -92,9 +87,9 @@ _Start Command_ `yarn start` (<a href="#usage">Refer to the usage section</a>)
 ### General
 Given more time I would Implement the following.
 * Add a better Error Page.
-* Get the correct font.
+* Test all the things that can end should be tested.
 * Add storybook here and import ui-kit stories.
-* Add custom error handling in Insights and drawer.
+* Add custom error handling for Client side and Api errors.
 * Add the support for internationalisation react-intl.
 * Add some custom test renderers to wrap components with providers.
 * Add pre-flight step github action for test, lint etc.
@@ -104,6 +99,7 @@ Given more time I would Implement the following.
 * Gather coverage and add badges Coveralls etc.
 * If there should be more routes, we can lazy load them.
 * Add global notification's system for toasts warnings etc.
+* Make use of Materia UI theme spacing in more places for standard spacing everywhere and or have ui-kit.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
